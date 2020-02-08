@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_200828) do
+ActiveRecord::Schema.define(version: 2020_02_08_213313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer "years_of_experience"
+    t.bigint "user_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_experiences_on_skill_id"
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "location"
+    t.boolean "accepted"
+    t.bigint "mentor_id"
+    t.bigint "mentee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mentee_id"], name: "index_meetings_on_mentee_id"
+    t.index ["mentor_id"], name: "index_meetings_on_mentor_id"
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
@@ -33,4 +56,8 @@ ActiveRecord::Schema.define(version: 2020_02_08_200828) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "experiences", "skills"
+  add_foreign_key "experiences", "users"
+  add_foreign_key "meetings", "users", column: "mentee_id"
+  add_foreign_key "meetings", "users", column: "mentor_id"
 end
