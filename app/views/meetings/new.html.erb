@@ -2,10 +2,9 @@
 <p>Find me in app/views/meetings/new.html.erb</p>
 
 <%= simple_form_for [@meeting] do |f| %>
-  <%= f.input :start_time %>
+  <%= f.input :start_time  %>
   <%= f.input :end_time %>
   <%= f.input :location %>
-  <%= f.input :mentor_id %>
-  <%= f.input :mentee_id %>
-   <%= f.submit "adding it" %>
+  <%= f.association :mentor, collection: User.all %>
+  <%= f.submit "adding it" %>
 <% end %>
