@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'experiences/new'
+  get 'experiences/update'
+  get 'experiences/destroy'
+  get 'experiences/index'
+  get 'meetings/new'
+  get 'meetings/show'
+  get 'meetings/update'
+  get 'meetings/destroy'
   devise_for :users
   root to: 'pages#home'
 
