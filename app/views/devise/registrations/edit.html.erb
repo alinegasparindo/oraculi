@@ -13,10 +13,26 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
+          <%= f.input :name,
+                      required: true,
+                      input_html: { autocomplete: "name" } %>
+          <%= f.input :description,
+                      required: true,
+                      hint: "tell us more about you :)",
+                      input_html: { autocomplete: "about you" } %>
+          <%= f.input :linkedin_account,
+                      input_html: { autocomplete: "linkedin" } %>
+          <%= f.input :github_account,
+                      input_html: { autocomplete: "github" } %>
+
+          <%= f.input :photo, as: :file %>
+
+
           <%= f.input :password,
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
+
           <%= f.input :password_confirmation,
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
@@ -25,6 +41,7 @@
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
         </div>
+
 
         <div class="form-actions">
           <%= f.button :submit, "Update" %>
@@ -37,7 +54,7 @@
 
       <%= link_to "Back", :back %>
 
-      
+
     </div>
   </div>
 </div>
