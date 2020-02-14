@@ -14,6 +14,20 @@ require "open-uri"
 
 skills = Skill.create([{ name: 'Ruby' }, { name: 'JavaScript' }, { name: 'HTML & CSS' }, { name: 'UI/UX' }, { name: 'Product Management'}, { name: 'PHP'}, { name: 'Angular'}])
 
+
+
+aline = User.new({
+    email: "aline.gasparindo@gmail.com",
+    password: '123456',
+    name: "Aline",
+    description: Faker::TvShows::MichaelScott.quote
+  })
+
+file2 = URI.open('https://static-showpoblog.executiveponies.com/uploads/sites/1/2018/03/the-office-revival-nbc-steve-carell-replaced.png')
+  aline.photo.attach(io: file2, filename: "Aline.png", content_type: 'image/png')
+  aline.save!
+
+
 20.times do
   file = URI.open('https://static-showpoblog.executiveponies.com/uploads/sites/1/2018/03/the-office-revival-nbc-steve-carell-replaced.png')
 

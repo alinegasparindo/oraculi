@@ -1,1 +1,22 @@
 <h1 class="text-center">Welcome to <strong>Oraculi</strong></h1>
+
+<div class="container">
+  <h1>Find a mentor</h1>
+  <div class="cards">
+    <% @users.each do |user| %>
+      <div class="card-cocktail">
+
+        <%= cl_image_tag user.photo.key %>
+
+        <div class="card-cocktail-infos">
+          <div>
+            <h2> <%= user.name  %></h2>
+            <h2> <%= user.description  %></h2>
+            <div class="icons">
+              <p> <%= link_to "More", user_path(user) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
