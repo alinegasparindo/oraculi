@@ -2,6 +2,7 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
+    @user = User.find(params[:user_id])
   end
 
   def new
