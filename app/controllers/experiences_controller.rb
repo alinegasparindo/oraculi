@@ -33,6 +33,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(%i[user skill years_of_experience])
+    params.require(:experience).permit(%i[user_id skill_id years_of_experience])
   end
 end
