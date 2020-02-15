@@ -1,15 +1,45 @@
-<h1 class="text-center">Welcome to <strong>Oraculi</strong></h1>
+<div class="header" style="">
+  <div class="text">
+    <h1 class="text-center">Welcome to <strong>Oraculi</strong></h1>
+    <h6 class="text-center">Use your talents to their <strong>full potential</strong>!</h6>
+  </div>
+  
+  <div class="search">
+    <div class="input">
+      <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a skill"
+      %>        
+      </div>
 
-<div class="container">
-  <h1>Mentors in Montréal</h1>
-  <div class="cards">
-    <% @users.each do |user| %>
-      <div class="card-avatar">
-          <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
-        <div class="card-avatar-infos">
-            <p> <%= user.name  %></p>
-            <p> <%= link_to "More", user_path(user) %></p>
-        </div>
+      <div>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
       </div>
     <% end %>
+
+    <%#= simple_form_for @skill do |f| %>
+      <%#  f.input :skill %>
+      <%#  f.association :skill, collection: Skill.all %>
+      <%#  f.submit %>
+    <%# end  %>
+
   </div>
+</div>
+
+  <div class="container">
+    <h1>Mentors in Montréal</h1>
+    <div class="cards">
+      <% @users.each do |user| %>
+        <div class="card-avatar">
+            <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
+          <div class="card-avatar-infos">
+              <p> <%= user.name  %></p>
+              <p> <%= link_to "More", user_path(user) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
