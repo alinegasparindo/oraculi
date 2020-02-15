@@ -31,9 +31,13 @@
               <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
             <% end %>
           <div class="card-avatar-infos">
+            <div class="avatar-name">
               <p> <%= user.name  %></p>
-            <% experience = user.experiences.sort_by(&:years_of_experience).last %>
-            <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
+            </div>
+            <div class="avatar-experience">
+              <% experience = user.experiences.sort_by(&:years_of_experience).last %>
+              <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
+            </div>
           </div>
         </div>
       <% end %>
