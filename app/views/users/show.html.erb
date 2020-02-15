@@ -20,8 +20,16 @@
           </div>
         </div>
       <% end %>
-      <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
-      <h1><%= link_to "Add a new skill", new_user_experience_path(@user), {class: "btn btn-primary"}  %></h1>
+
+      <% if @user == current_user %>
+        <h1><%= link_to "Add a new skill", new_user_experience_path(@user), {class: "btn btn-primary"}  %></h1>
+      <%  else %>
+        <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
+      <% end %>
+      
+
+
+
     </div>
 
     <div class="map-review">
