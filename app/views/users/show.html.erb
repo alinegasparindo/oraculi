@@ -1,6 +1,3 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 
 <div class="container">
   <div class="show-page">
@@ -8,10 +5,21 @@
       <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
       <p><%= @user.name %></p>
       <p><%= @user.description %></p>
+      <div class="icons-user">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+
+      </div>
+
     </div>
 
     <div class="map-review">
-      <p>this is the map</p>
+      <%= image_tag "map.png", alt:"altext" %>
+
+    <div class="reviews">
+
+    </div>
+
     </div>
 
   </div>
