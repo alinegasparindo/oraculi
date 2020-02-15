@@ -1,2 +1,21 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+
+<div class="container">
+  <div class="show-page">
+    <div class="mentor-info">
+      <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
+      <p><%= @user.name %></p>
+      <p><%= @user.description %></p>
+    </div>
+
+    <div class="map-review">
+      <p>this is the map</p>
+    </div>
+
+  </div>
+
+</div>
+
+

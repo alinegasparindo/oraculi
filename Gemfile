@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+
+gem 'cloudinary'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'devise'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

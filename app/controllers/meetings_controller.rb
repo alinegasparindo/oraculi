@@ -1,13 +1,22 @@
 class MeetingsController < ApplicationController
+
+  def index
+    @meetings = Meeting.all
+  end
+
   def new
     @meeting = Meeting.new
+    @mentor = User.find(params[:user_id])
+    @mentee = current_user
   end
 
   def create
     @meeting = Meeting.new(meeting_params)
-    @user = current_user
+    @meeting.mentee = current_user
+    @meeting.mentor = User.find(params[:user_id])
+    @meeting.accepted = false
     if @meeting.save
-      redirect_to meeting_path(@meeting)
+      redirect_to user_meetings_path(current_user)
     else
       render :new
     end
