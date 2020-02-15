@@ -54,7 +54,7 @@ end
 admin = User.new({
   email: "admin@admin.com",
   password: 'admin123',
-  name: "admin",
+  name: "Admin Johnson",
   description: Faker::TvShows::MichaelScott.quote
 })
 
@@ -72,7 +72,7 @@ rand(1..5).times do
   )
 end
 
-5.times do
+20.times do
   name = Faker::Name.unique.name
 
   user = User.new({
