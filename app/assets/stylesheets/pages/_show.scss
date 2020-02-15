@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.mentor-info {
+  align-items: center;
+}
+
 .mentor-info p {
   width: 400px;
   align-items: center;
@@ -15,6 +19,16 @@
   width: 100px;
 }
 
-.map-review img {
-  width: 600px;
+.reviews {
+  margin-top: 20px;
+  display:flex;
+  margin-top: 10px;
 }
+
+.reviews p {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+// .map-review img {
+//   width: 600px;
+// }
