@@ -1,21 +1,19 @@
 // Specific CSS for your home-page
 
+.header-background {
+	background: url(https://s3.amazonaws.com/btoimage/prism-thumbnails/articles/20181012-co-working-toronto.jpg-resize_then_crop-_frame_bg_color_FFF-h_1365-gravity_center-q_70-preserve_ratio_true-w_2048_.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center -450px;
+}
+
 .header {
 	display: flex;
 	width: 100%;
 	height: 350px;
-	/*background: url(https://assets.entrepreneur.com/content/3x2/2000/20150717180743-mentoring-business-woman-man.jpeg);*/
-	/*background: url(https://www.everypixel.com/i/high_res/business-mentorship.jpg);*/
-	background-repeat: no-repeat;
-	background-size: stretch;
-	background-position: center -200px;
-	background-color: #666666;
-	-webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
-
+	color: black;
+	text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
+	text-align:center;
 }
 
 .text {
@@ -30,6 +28,40 @@
 .input {
 	padding-right: 16px;
 	width: 500px;
+}
+
+.vertical-center{
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh; /* These two lines are counted as one :-)       */
+	display: flex;
+	align-items: center;
+}
+
+.footer {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
 }
 
 .card-avatar-infos p {
