@@ -10,7 +10,7 @@
       </div>
       <p><%= @user.description %></p>
       <h2>Skills</h2>
-      <% @user.experiences.each do |experience| %>
+      <% @user.experiences.sort_by(&:years_of_experience).reverse.each do |experience| %>
         <div class="experiences">
           <div class="experience-title">
             <p><%= experience.skill.name %></p>
@@ -26,7 +26,7 @@
       <%  else %>
         <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
       <% end %>
-      
+
 
 
 
