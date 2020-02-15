@@ -4,12 +4,15 @@
   <h1>Mentors in Montréal</h1>
   <div class="cards">
     <% @users.each do |user| %>
-      <div class="card-avatar">
-          <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
-        <div class="card-avatar-infos">
-            <p> <%= user.name  %></p>
-            <p> <%= link_to "More", user_path(user) %></p>
+      <% begin%>
+        <div class="card-avatar">
+            <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
+          <div class="card-avatar-infos">
+              <p> <%= user.name  %></p>
+              <p> <%= link_to "More", user_path(user) %></p>
+          </div>
         </div>
-      </div>
+      <% rescue %>
+      <% end %>
     <% end %>
   </div>
