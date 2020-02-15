@@ -3,22 +3,29 @@
   <div class="show-page">
     <div class="mentor-info">
       <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
-      <p><%= @user.name %></p>
+      <h2><%= @user.name %></h2>
       <p><%= @user.description %></p>
       <div class="icons-user">
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
       </div>
-
+      <h1><%= link_to "Book", new_user_meeting_path(@user), {class: "btn btn-gradient"}  %></h1>
     </div>
 
     <div class="map-review">
-      <%= image_tag "map.png", alt:"altext" %>
+      <%= image_tag "map.png", alt:"altext", width:"600px" %>
+
+    <h2>Reviews</h2>
+    <div class="reviews">
+      <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+      <p>He changed my life ! Thanks so much</p>
+    </div>
 
     <div class="reviews">
-
+      <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+      <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
     </div>
+
 
     </div>
 
