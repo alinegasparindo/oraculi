@@ -4,18 +4,46 @@
     <div class="mentor-info">
       <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
       <h2><%= @user.name %></h2>
-      <p><%= @user.description %></p>
       <div class="icons-user">
         <a href="#"><i class="fab fa-linkedin"></i></a>
         <a href="#"><i class="fab fa-github"></i></a>
       </div>
-      <h1><%= link_to "Book", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
+      <p><%= @user.description %></p>
+      <h2>Skills</h2>
+      <% @user.experiences.each do |experience| %>
+        <div class="experiences">
+          <div class="experience-title">
+            <p><%= experience.skill.name %></p>
+          </div>
+          <div class="experience-years">
+            <p><%= experience.years_of_experience %></p>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @user == current_user %>
+        <h1><%= link_to "Add a new skill", new_user_experience_path(@user), {class: "btn btn-primary"}  %></h1>
+      <%  else %>
+        <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
+      <% end %>
+      
+
+
+
     </div>
 
     <div class="map-review">
       <%= image_tag "map.png", alt:"altext", width:"600px" %>
 
     <h2>Reviews</h2>
+      <div class="reviews">
+        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        <p>He changed my life ! Thanks so much</p>
+      </div>
+      <div class="reviews">
+        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
+      </div>
     <div class="reviews">
       <%= cl_image_tag current_user.photo.key, class: "avatar" %>
       <p>He changed my life ! Thanks so much</p>
@@ -25,10 +53,6 @@
       <%= cl_image_tag current_user.photo.key, class: "avatar" %>
       <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
     </div>
-      <!-- new_user_experience_path(@user) -->
-
     </div>
-
   </div>
-
 </div>

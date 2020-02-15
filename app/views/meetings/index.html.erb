@@ -1,19 +1,24 @@
 
 
 <div class="container">
-  <h1>Here are all your meetings</h1>
+  <h1 class="text-center">Here are all your meetings</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
   <h2>As a mentee</h2>
 
   <% @user.mentee_meetings.each do |meeting| %>
     <li><%= meeting.start_time %> : <%= meeting.location %></li>
 
   <% end %>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
   <h2>As a mentor</h2>
-  <% @user.mentor_meetings.each do |meeting| %>
-    <li><%= meeting.start_time %> : <%= meeting.location %></li>
-
-  <% end %>
-
-</div>
+    <p>You currently don't have any meetings booked as a mentor!</p>
+  </div>

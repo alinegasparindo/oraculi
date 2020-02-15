@@ -26,7 +26,7 @@ puts '***********************'
 puts 'Currently seeding'
 puts '***********************'
 puts ''
-skills = Skill.create([{ name: 'Ruby' }, { name: 'JavaScript' }, { name: 'HTML & CSS' }, { name: 'UI/UX' }, { name: 'Product Management'}, { name: 'PHP'}, { name: 'Angular'}])
+skills = Skill.create([{ name: 'Ruby' }, { name: 'JavaScript' }, { name: 'HTML & CSS' }, { name: 'UI/UX' }, { name: 'PHP'}, { name: 'Angular'}])
 
 image = 'https://static-showpoblog.executiveponies.com/uploads/sites/1/2018/03/the-office-revival-nbc-steve-carell-replaced.png'
 
@@ -54,7 +54,7 @@ end
 admin = User.new({
   email: "admin@admin.com",
   password: 'admin123',
-  name: "Admin",
+  name: "Admin Johnson",
   description: Faker::TvShows::MichaelScott.quote
 })
 
@@ -72,7 +72,7 @@ rand(1..5).times do
   )
 end
 
-5.times do
+20.times do
   name = Faker::Name.unique.name
 
   user = User.new({
