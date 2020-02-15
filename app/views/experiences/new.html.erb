@@ -1,2 +1,11 @@
-<h1>Experiences#new</h1>
-<p>Find me in app/views/experiences/new.html.erb</p>
+<div class="container">
+  <h1>Adding a new experience</h1>
+
+
+  <%= simple_form_for [@user, @experience] do |f| %>
+    <%= f.association :skill, collection: Skill.all %>
+    <%= f.input :years_of_experience  %>
+    <%= f.submit "adding it" %>
+  <% end %>
+
+</div>
