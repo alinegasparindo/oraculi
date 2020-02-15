@@ -54,7 +54,7 @@ end
 admin = User.new({
   email: "admin@admin.com",
   password: 'admin123',
-  name: "admin",
+  name: "Admin",
   description: Faker::TvShows::MichaelScott.quote
 })
 
