@@ -25,13 +25,18 @@
   <h1 class="text-center">Mentors in Montréal</h1>
   <div class="cards">
     <% @users.each do |user| %>
-      <div class="card-avatar">
-          <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
-        <div class="card-avatar-infos">
-            <p> <%= user.name  %></p>
-            <p> <%= link_to "More", user_path(user) %></p>
+      <% if (user != current_user) %>
+        <div class="card-avatar">
+            <%= link_to user_path(user) do %>
+              <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
+            <% end %>
+          <div class="card-avatar-infos">
+              <p> <%= user.name  %></p>
+            <% experience = user.experiences.sort_by(&:years_of_experience).last %>
+            <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
