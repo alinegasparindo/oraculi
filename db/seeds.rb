@@ -5,16 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Skill.destroy_all
+
+puts '***********************'
+puts 'Clearing the current db'
 User.destroy_all
+puts '-Deleted users'
+Experience.destroy_all
+puts '-Deleted experiences'
+Skill.destroy_all
+puts '-Deleted skills'
+puts 'Clearing db completed'
+puts '***********************'
 
 
 require 'faker'
 require "open-uri"
+puts ''
 
+puts '***********************'
+puts 'Currently seeding'
+puts '***********************'
+puts ''
 skills = Skill.create([{ name: 'Ruby' }, { name: 'JavaScript' }, { name: 'HTML & CSS' }, { name: 'UI/UX' }, { name: 'Product Management'}, { name: 'PHP'}, { name: 'Angular'}])
 
-
+image = 'https://static-showpoblog.executiveponies.com/uploads/sites/1/2018/03/the-office-revival-nbc-steve-carell-replaced.png'
 
 aline = User.new({
     email: "aline.gasparindo@gmail.com",
@@ -23,14 +37,42 @@ aline = User.new({
     description: Faker::TvShows::MichaelScott.quote
   })
 
-file2 = URI.open('https://static-showpoblog.executiveponies.com/uploads/sites/1/2018/03/the-office-revival-nbc-steve-carell-replaced.png')
-  aline.photo.attach(io: file2, filename: "Aline.png", content_type: 'image/png')
-  aline.save!
+aline.photo.attach(io: URI.open(image), filename: "Aline.png", content_type: 'image/png')
+aline.save!
+selected_skills = []
+rand(1..5).times do
+  skill = (skills - selected_skills).sample
+  selected_skills.push(skill)
+  Experience.create(
+  user: aline,
+  skill: skill,
+  years_of_experience: rand(1..7)
+  )
+end
 
 
-20.times do
-  file = URI.open('https://static-showpoblog.executiveponies.com/uploads/sites/1/2018/03/the-office-revival-nbc-steve-carell-replaced.png')
+admin = User.new({
+  email: "admin@admin.com",
+  password: 'admin123',
+  name: "admin",
+  description: Faker::TvShows::MichaelScott.quote
+})
 
+admin.photo.attach(io: URI.open(image), filename: "admin.png", content_type: 'image/png')
+admin.save!
+
+selected_skills = []
+rand(1..5).times do
+  skill = (skills - selected_skills).sample
+  selected_skills.push(skill)
+  Experience.create(
+  user: admin,
+  skill: skill,
+  years_of_experience: rand(1..7)
+  )
+end
+
+5.times do
   name = Faker::Name.unique.name
 
   user = User.new({
@@ -40,11 +82,26 @@ file2 = URI.open('https://static-showpoblog.executiveponies.com/uploads/sites/1/
     description: Faker::TvShows::MichaelScott.quote
   })
 
-  user.photo.attach(io: file, filename: "#{name}.png", content_type: 'image/png')
+  selected_skills = []
+  rand(1..5).times do
+    skill = (skills - selected_skills).sample
+    selected_skills.push(skill)
+    Experience.create(
+    user: user,
+    skill: skill,
+    years_of_experience: rand(1..7)
+    )
+  end
+  # # [1..5].sample.times do
+  #   user.experiences << Experience.create(
+  #     skill: skills.sample,
+  #     years_of_experience: [1..7].sample
+  #   )
+  # # end
+
+  user.photo.attach(io: URI.open(image), filename: "#{name}.png", content_type: 'image/png')
   user.save!
 end
 
-  # user.experiences.create({
-  #     skill: skills.sample,
-  #     years_of_experience: [1..10].sample
-  #   })
+
+puts 'Seeding completed'

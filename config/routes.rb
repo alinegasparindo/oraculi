@@ -5,11 +5,10 @@ Rails.application.routes.draw do
 
   resources :users, only: :show do
     resources :meetings, only: %i(new create show index)
+    resources :experiences
   end
 
   # resources :meetings, only: %i(update destroy)
-
-  resources :experiences
 
   get 'user', to: 'pages#profile'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
