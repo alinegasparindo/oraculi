@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: :show do
-    resources :meetings, only: %i(new create)
+    resources :meetings, only: %i(new create show index)
   end
 
-  resources :meetings, only: %i(update destroy)
+  # resources :meetings, only: %i(update destroy)
 
   resources :experiences
 
