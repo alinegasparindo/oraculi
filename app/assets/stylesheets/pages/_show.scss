@@ -2,8 +2,13 @@
   display: flex;
 }
 
+.map-review {
+  align-items: right;
+}
+
 .mentor-info {
   align-items: center;
+  width: 800px;
 }
 
 .mentor-info p {
@@ -22,13 +27,38 @@
 .reviews {
   margin-top: 20px;
   display:flex;
-  margin-top: 10px;
+  width: 500px;
+
 }
 
 .reviews p {
   margin-left: 20px;
   margin-top: 5px;
 }
+
+.experiences {
+  display: flex;
+}
+
+.experience-title {
+  width: 200px;
+}
+
+.experience-years {
+  width: 100px;
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-size: 25px;
+  color: blue;
+}
+
+.fa-linkedin {
+  width: 30px;
+}
+
+
 // .map-review img {
 //   width: 600px;
 // }
