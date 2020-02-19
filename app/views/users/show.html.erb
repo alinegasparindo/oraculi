@@ -28,41 +28,34 @@
       <% end %>
     </div>
 
-
-
     <div class="map-review">
-      <%= image_tag "map.png", alt:"altext", width:"600px" %>
 
-    <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+      <div
+      id="map"
+      style="width: 700px;
+      height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+      <p><%= @user.name %>'s prefered location</p>
 
-
-
-
-
-    <h2>Reviews</h2>
-      <div class="reviews">
-        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-        <p>He changed my life ! Thanks so much</p>
-      </div>
-      <div class="reviews">
-        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-        <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
-      </div>
-    <div class="reviews">
-      <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-      <p>He changed my life ! Thanks so much</p>
-    </div>
-
-    <div class="reviews">
-      <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-      <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
-    </div>
+      <h2>Reviews</h2>
+        <div class="reviews">
+          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <p>He changed my life ! Thanks so much</p>
+        </div>
+        <div class="reviews">
+          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
+        </div>
+        <div class="reviews">
+          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <p>He changed my life ! Thanks so much</p>
+        </div>
+        <div class="reviews">
+          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
+        </div>
     </div>
   </div>
 </div>

@@ -3,15 +3,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = User.geocoded
 
-    @markers = @users.map do |user|
+    @markers = [@user].map do |user|
       {
         lat: user.latitude,
         lng: user.longitude
       }
     end
   end
-
-
 
 
   def user_params
