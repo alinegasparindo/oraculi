@@ -13,7 +13,8 @@ class PagesController < ApplicationController
     else
       @users = User.all
     end
-   @skills = Skill.all
+    @skills = Skill.all
+    @image = User.all.first.photo.key
    #  if params[:query].present?
    #    sql_query = " \
    #      user.skills ILIKE :query \

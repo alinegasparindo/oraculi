@@ -4,21 +4,21 @@
       <h1 class="text-center">Welcome to <strong>Oraculi</strong></h1>
       <h6 class="text-center">Use your talents to their <strong>full potential</strong>!</h6>
     </div>
-    
+
     <div class="search">
       <div class="input">
-        <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a skill"
-        %>        
-        </div>
+      <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a skill"
+      %>
+      </div>
 
-        <div>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+      <div>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -27,10 +27,14 @@
   <h1 class="text-center" style="margin-top: 50px; margin-bottom: 100px">Find the <strong>best</strong> mentors near you</h1>
   <div class="cards">
     <% @users.each do |user| %>
-      <% if (user != current_user) %>
+      <% if (user != current_user and user != @users[0]) %>
         <div class="card-avatar">
             <%= link_to user_path(user) do %>
-              <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
+              <% begin %>
+                <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
+              <% rescue %>
+                <%= cl_image_tag @image, class: "avatar-extra" %>
+              <% end %>
             <% end %>
           <div class="card-avatar-infos">
             <div class="avatar-name">
@@ -38,7 +42,10 @@
             </div>
             <div class="avatar-experience">
               <% experience = user.experiences.sort_by(&:years_of_experience).last %>
-              <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
+              <% begin %>
+                <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
+              <% rescue %>
+              <% end %>
             </div>
           </div>
         </div>

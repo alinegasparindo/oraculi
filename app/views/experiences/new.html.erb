@@ -3,7 +3,7 @@
 
 
   <%= simple_form_for [@user, @experience] do |f| %>
-    <%= f.association :skill, collection: Skill.all %>
+    <%= f.association :skill, collection: (Skill.all - @user.skills) %>
     <%= f.input :years_of_experience  %>
     <%= f.submit "adding it" %>
   <% end %>
