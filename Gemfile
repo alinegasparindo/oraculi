@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-
+gem 'unsplash'
 gem 'geocoder'
 gem 'cloudinary'
 gem 'dotenv-rails', groups: [:development, :test]
