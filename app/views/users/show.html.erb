@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="show-page">
     <div class="mentor-info">
@@ -24,20 +23,21 @@
           </div>
         </div>
       <% end %>
-
       <% if @user == current_user %>
         <h1><%= link_to "Add a new skill", new_user_experience_path(@user), {class: "btn btn-primary"}  %></h1>
       <%  else %>
         <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
       <% end %>
-
-
-
-
     </div>
-
     <div class="map-review">
-      <%= image_tag "map.png", alt:"altext", width:"600px" %>
+      <div
+      id="map"
+      style="width: 700px;
+      height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+      <p><%= @user.name %>'s prefered location</p>
 
     <h2>Reviews</h2>
       <div class="reviews">
@@ -64,7 +64,6 @@
         <% end %>
       <p>He changed my life ! Thanks so much</p>
     </div>
-
     <div class="reviews">
       <% begin %>
           <%= cl_image_tag @user.photo.key, class: "avatar" %>
