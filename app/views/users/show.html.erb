@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="show-page">
     <div class="mentor-info">
@@ -9,7 +8,7 @@
       <% end %>
       <h2><%= @user.name %></h2>
       <div class="icons-user">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href=<%= @user.linkedin_account %>><i class="fab fa-linkedin"></i></a>
         <a href="#"><i class="fab fa-github"></i></a>
       </div>
       <p><%= @user.description %></p>
@@ -26,6 +25,7 @@
       <% end %>
 
       <% if @user == current_user %>
+        <h1><%= link_to "Edit my profile", edit_user_registration_path(@user), {class: "btn btn-primary"}  %></h1>
         <h1><%= link_to "Add a new skill", new_user_experience_path(@user), {class: "btn btn-primary"}  %></h1>
       <%  else %>
         <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>

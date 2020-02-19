@@ -1,20 +1,22 @@
 // Specific CSS for your home-page
 
 .header-background {
-	background: url(https://s3.amazonaws.com/btoimage/prism-thumbnails/articles/20181012-co-working-toronto.jpg-resize_then_crop-_frame_bg_color_FFF-h_1365-gravity_center-q_70-preserve_ratio_true-w_2048_.webp);
+	background: url(https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-scaled-2048x1366.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center -450px;
+	background-size: stretch;
+	background-position: center -650px;
 }
 
 .header {
 	display: flex;
 	width: 100%;
 	height: 350px;
-	color: black;
-	text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
+	color: white;
+	text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
 	text-align:center;
 }
+
+
 
 .text {
 	margin: auto;

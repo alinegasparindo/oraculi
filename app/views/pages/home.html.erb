@@ -1,4 +1,5 @@
 <div class="header-background">
+    
   <div class="header">
     <div class="text">
       <h1 class="text-center">Welcome to <strong>Oraculi</strong></h1>
@@ -8,17 +9,17 @@
     <div class="search">
       <div class="input">
       <%= form_tag root_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a skill"
-      %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a skill"
+        %>
       </div>
 
-      <div>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+        <div>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -63,6 +64,6 @@
     <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    Oraculi 2020 <i class="far fa-copyright"></i>
   </div>
 </div>
