@@ -2,8 +2,19 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-   @users = User.all
-   @skills = Skill.all
+    if params[:query].present?
+      @users = User.where(skill: params[:query])
+      sql_query = " \
+        users.name ILIKE :query \
+        OR experiences.first_name ILIKE :query \
+        OR skills.last_name ILIKE :query \
+      "
+      @users = User.joins(:skill).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @users = User.all
+    end
+    @skills = Skill.all
+    @image = User.all.first.photo.key
    #  if params[:query].present?
    #    sql_query = " \
    #      user.skills ILIKE :query \

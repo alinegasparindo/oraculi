@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @users = User.geocoded
+
+    @image = User.all.first.photo.key
 
     @markers = [@user].map do |user|
       {

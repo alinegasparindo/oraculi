@@ -1,8 +1,11 @@
-
 <div class="container">
   <div class="show-page">
     <div class="mentor-info">
-      <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
+      <% begin %>
+        <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
+      <% rescue %>
+        <%= cl_image_tag @image, class: "avatar-show" %>
+      <% end %>
       <h2><%= @user.name %></h2>
       <div class="icons-user">
         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -10,7 +13,7 @@
       </div>
       <p><%= @user.description %></p>
       <h2>Skills</h2>
-      <% @user.experiences.each do |experience| %>
+        <% @user.experiences.sort_by(&:years_of_experience).reverse.each do |experience| %>
         <div class="experiences">
           <div class="experience-title">
             <p><%= experience.skill.name %></p>
@@ -20,16 +23,13 @@
           </div>
         </div>
       <% end %>
-
       <% if @user == current_user %>
         <h1><%= link_to "Add a new skill", new_user_experience_path(@user), {class: "btn btn-primary"}  %></h1>
       <%  else %>
         <h1><%= link_to "Book this person", new_user_meeting_path(@user), {class: "btn btn-primary"}  %></h1>
       <% end %>
     </div>
-
     <div class="map-review">
-
       <div
       id="map"
       style="width: 700px;
@@ -39,23 +39,39 @@
       ></div>
       <p><%= @user.name %>'s prefered location</p>
 
-      <h2>Reviews</h2>
-        <div class="reviews">
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-          <p>He changed my life ! Thanks so much</p>
-        </div>
-        <div class="reviews">
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-          <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
-        </div>
-        <div class="reviews">
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-          <p>He changed my life ! Thanks so much</p>
-        </div>
-        <div class="reviews">
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-          <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
-        </div>
+    <h2>Reviews</h2>
+      <div class="reviews">
+        <% begin %>
+          <%= cl_image_tag @user.photo.key, class: "avatar" %>
+        <% rescue %>
+          <%= cl_image_tag @image, class: "avatar" %>
+        <% end %>
+        <p>He changed my life ! Thanks so much</p>
+      </div>
+      <div class="reviews">
+        <% begin %>
+          <%= cl_image_tag @user.photo.key, class: "avatar" %>
+        <% rescue %>
+          <%= cl_image_tag @image, class: "avatar" %>
+        <% end %>
+        <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
+      </div>
+    <div class="reviews">
+      <% begin %>
+          <%= cl_image_tag @user.photo.key, class: "avatar" %>
+        <% rescue %>
+          <%= cl_image_tag @image, class: "avatar" %>
+        <% end %>
+      <p>He changed my life ! Thanks so much</p>
+    </div>
+    <div class="reviews">
+      <% begin %>
+          <%= cl_image_tag @user.photo.key, class: "avatar" %>
+        <% rescue %>
+          <%= cl_image_tag @image, class: "avatar" %>
+        <% end %>
+      <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
+    </div>
     </div>
   </div>
 </div>
