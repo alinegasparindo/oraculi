@@ -2,23 +2,27 @@
 
 <div class="container">
   <h1 class="text-center">Here are all your meetings</h1>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
   <h2>As a mentee</h2>
 
-  <% @user.mentee_meetings.each do |meeting| %>
-    <li><%= meeting.start_time %> : <%= meeting.location %> with <%= meeting.mentor.name %> status: <%= meeting.accepted %></li>
+      <% @user.mentee_meetings.each do |meeting| %>
 
-  <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <div class="notification">
 
-  <h2>As a mentor</h2>
-    <p>You currently don't have any meetings booked as a mentor!</p>
-  </div>
+         <%= cl_image_tag meeting.mentor.photo.key, class: "avatar-large" %>
+        <div class="notification-content">
+          <p><small><%= meeting.start_time %></small></p>
+          <p><small><%= meeting.location %></small></p>
+          <p>With <%= meeting.mentor.name %></p>
+
+        </div>
+
+        <div class="notification-actions">
+          <a href="#">Accept <i class="fas fa-pencil-alt"></i></a>
+          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+        </div>
+      </div>
+
+    <% end %>
+
+</div>
