@@ -10,7 +10,7 @@
   <h2>As a mentee</h2>
 
   <% @user.mentee_meetings.each do |meeting| %>
-    <li><%= meeting.start_time %> : <%= meeting.location %></li>
+    <li><%= meeting.start_time %> : <%= meeting.location %> with <%= meeting.mentor.name %> status: <%= meeting.accepted %></li>
 
   <% end %>
 <br>
