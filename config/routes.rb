@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :meetings, only: %i(new create show index)
     resources :experiences
     resources :reviews, only: %i(new create)
+
   end
+
 
   resources :meetings, only: %i(update destroy confirm)
 

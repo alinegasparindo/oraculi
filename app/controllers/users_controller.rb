@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-
+    @review = Review.new
     @image = User.all.first.photo.key
 
     @markers = [@user].map do |user|
