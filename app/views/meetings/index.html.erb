@@ -32,7 +32,6 @@
     <div class="mentor">
         <h2>As a mentor</h2>
           <% @user.mentor_meetings.each do |meeting| %>
-
               <div class="notification">
                  <%= cl_image_tag meeting.mentee.photo.key, class: "avatar-large" %>
                 <div class="notification-content">
@@ -55,7 +54,6 @@
                   <p class=""><%= link_to "⛔️ Cancel", meeting_path(meeting), method: :delete %></p>
                 </div>
               </div>
-
           <% end %>
     </div>
   </div>
