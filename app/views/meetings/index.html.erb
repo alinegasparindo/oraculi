@@ -38,7 +38,7 @@
                   <p><small><%= meeting.start_time %></small></p>
                   <p><small><%= meeting.location %></small></p>
                   <p>With <%= meeting.mentee.name %></p>
-                  <% if meeting.accepted == false %>
+                  <% if meeting.accepted == false  %>
                     <p>Status: Waiting for approval</p>
                   <% end %>
                   <% if meeting.accepted == true %>
