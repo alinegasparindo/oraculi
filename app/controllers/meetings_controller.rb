@@ -30,13 +30,21 @@ class MeetingsController < ApplicationController
   def destroy
     @meeting = Meeting.find(params[:id])
     @meeting.destroy
-    redirect_to meetings_path
+    redirect_to user_meetings_path(current_user)
   end
 
   def edit
     @meeting = Meeting.find(params[:id])
     @meeting.save
   end
+
+  def confirm
+    @meeting = Meeting.find(params[:id])
+    @meeting.accepted = true
+    @meeting.update(meeting_params)
+    redirect_to user_meetings_path(current_user)
+  end
+
 
   def update
     @meeting = Meeting.find(params[:id])
