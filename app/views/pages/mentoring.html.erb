@@ -23,34 +23,3 @@
     </div>
   </div>
 </div>
-
-
-<div class="container">
-  <div class="cards">
-    <% @users.each do |user| %>
-      <% if (user != current_user && user != @users[0]) %>
-        <div class="card-avatar">
-            <%= link_to user_path(user) do %>
-              <% begin %>
-                <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
-              <% rescue %>
-                <%= cl_image_tag @image, class: "avatar-extra" %>
-              <% end %>
-            <% end %>
-          <div class="card-avatar-infos">
-            <div class="avatar-name">
-              <p style="margin-top: 20px;"> <strong><%= user.name  %></strong></p>
-            </div>
-            <div class="avatar-experience">
-              <% experience = user.experiences.sort_by(&:years_of_experience).last %>
-              <% begin %>
-                <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
-              <% rescue %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>

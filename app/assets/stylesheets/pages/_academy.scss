@@ -1,0 +1,20 @@
+.card {
+	width: 450px;
+	height: 280px;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-group {
+	margin: auto;
+	display: block;
+	margin-top: 50px;
+	/*display: grid;*/
+	/*grid-template-columns:1fr 1fr 1fr;*/
+	grid-gap: 20px;
+}

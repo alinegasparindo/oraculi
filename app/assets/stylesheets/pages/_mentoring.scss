@@ -1,17 +1,23 @@
 .header-background {
-	background: url(https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-scaled-2048x1366.jpg);
+	/*background: url(https://gurusway.com/wp-content/uploads/2018/11/Alpha-man-3.jpeg);*/
 	background-repeat: no-repeat;
 	background-size: stretch;
-	background-position: center -650px;
+	background-position: center -400px;
 }
 
 .header {
 	display: flex;
 	width: 100%;
-	height: 350px;
-	color: white;
+	height: 200px;
+	/*color: black;
 	text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
-	text-align:center;
+	text-align:center;*/
+	color: #202020;
+    background-color: #2d2d2d;
+    letter-spacing: .1em;
+    text-shadow: 
+      -1px -1px 1px #111, 
+      2px 2px 1px #363636;
 }
 
 .text {

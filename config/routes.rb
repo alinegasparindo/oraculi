@@ -12,12 +12,10 @@ Rails.application.routes.draw do
 
 
   get 'user', to: 'pages#profile'
-<<<<<<< HEAD
   get 'team', to: 'pages#team'
   get 'mentoring', to: 'pages#mentoring'
-=======
+  get 'academy', to: 'pages#academy'
   get 'meeting', to: 'meeting#update'
->>>>>>> afe0304461b2d6aa2955bf3c47d7c6b6b1d9883c
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
