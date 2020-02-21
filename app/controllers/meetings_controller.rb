@@ -15,7 +15,6 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @meeting.mentee = current_user
     @meeting.mentor = User.find(params[:user_id])
-    @meeting.accepted = false
     if @meeting.save
       redirect_to user_meetings_path(current_user)
     else
@@ -41,14 +40,15 @@ class MeetingsController < ApplicationController
   def confirm
     @meeting = Meeting.find(params[:id])
     @meeting.accepted = true
-    @meeting.update(meeting_params)
+    @meeting.update
     redirect_to user_meetings_path(current_user)
   end
 
-
   def update
     @meeting = Meeting.find(params[:id])
-    @meeting.update(meeting_params)
+    @meeting.accepted = true
+    @meeting.save
+    redirect_to user_meetings_path(current_user)
   end
 
   private

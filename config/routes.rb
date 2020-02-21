@@ -8,8 +8,11 @@ Rails.application.routes.draw do
     resources :experiences
   end
 
-  resources :meetings, only: %i(update destroy)
+  resources :meetings, only: %i(update destroy confirm)
+
 
   get 'user', to: 'pages#profile'
+  get 'meeting', to: 'meeting#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
