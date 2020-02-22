@@ -38,7 +38,7 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
-      <p><%= @user.name %>'s prefered location</p>
+      <p><%= @user.name %>'s prefered location: <%= @user.location %></p>
 
 
     <div class="reviews">
@@ -51,11 +51,13 @@
 
         <% @user.mentor_reviews.each do |review| %>
           <div class="notification-reviews">
+            <div class="review-img-container">
               <% begin %>
                 <%= cl_image_tag review.mentee.photo.key, class: "avatar" %>
               <% rescue %>
                 <%= cl_image_tag @image, class: "avatar" %>
               <% end %>
+            </div>
             <div class="notification-content">
               <p><small><% review.rate.times do  %>
                     <i class="fas fa-star"></i>
