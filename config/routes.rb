@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
 
   get 'user', to: 'pages#profile'
+  get 'team', to: 'pages#team'
+  get 'mentoring', to: 'pages#mentoring'
+  get 'academy', to: 'pages#academy'
+  get 'meeting', to: 'meeting#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

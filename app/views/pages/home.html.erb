@@ -1,69 +1,51 @@
-<div class="header-background">
-    
-  <div class="header">
-    <div class="text">
-      <h1 class="text-center">Welcome to <strong>Oraculi</strong></h1>
-      <h6 class="text-center">Use your talents to their <strong>full potential</strong>!</h6>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-scaled-2048x1366.jpg); background-position: center -560px;">
+  <div class="container">
+    <h1 style="margin-top: 50px">Oraculi matches students with their <strong>perfect mentor</strong>!</h1>
+    <p>Find someone that will help you grow your skills to your full potential.</p>
+    <%= link_to "Join now", new_user_registration_path, class: "btn btn-primary" %>
+  </div>
+</div>
 
-    <div class="search">
-      <div class="input">
-      <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a skill"
-        %>
+<div class="title"><h1 class="elegantshadow">Find the best <strong>mentors</strong> near you!</h1></div>
+
+<div>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  <div class="content">
+    <div class="content__container">
+      <p class="content__container__text">
+        Hello
+      </p>
+      
+      <ul class="content__container__list">
+        <li class="content__container__list__item"><strong>mentor!</strong></li>
+        <li class="content__container__list__item"><strong>mentee!</strong></li>
+        <li class="content__container__list__item">visitors</li>
+        <li class="content__container__list__item">Oraculees!</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="main-cards">
+  <div class="cardss">
+    <%= link_to team_path do%>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.proofhub.com/wp-content/uploads/2017/10/10-ways-to-empower-your-teams-to-be-more-productive.jpg)">
+        Meet Our team
       </div>
-
-        <div>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <h1 class="text-center" style="margin-top: 50px; margin-bottom: 100px">Find the <strong>best</strong> mentors near you</h1>
-  <div class="cards">
-    <% @users.each do |user| %>
-      <% if (user != current_user && user != @users[0]) %>
-        <div class="card-avatar">
-            <%= link_to user_path(user) do %>
-              <% begin %>
-                <%= cl_image_tag user.photo.key, class: "avatar-extra" %>
-              <% rescue %>
-                <%= cl_image_tag @image, class: "avatar-extra" %>
-              <% end %>
-            <% end %>
-          <div class="card-avatar-infos">
-            <div class="avatar-name">
-              <p style="margin-top: 20px;"> <strong><%= user.name  %></strong></p>
-            </div>
-            <div class="avatar-experience">
-              <% experience = user.experiences.sort_by(&:years_of_experience).last %>
-              <% begin %>
-                <p><%= experience.years_of_experience %> years of experience in <%= experience.skill.name %></p>
-              <% rescue %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
     <% end %>
-  </div>
-</div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    Oraculi 2020 <i class="far fa-copyright"></i>
-  </div>
+    <%= link_to mentoring_path do%>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.luxe.digital/media/2019/09/12090443/business-professional-attire-office-men-style-gabriel-macht-luxe-digital.jpg)">
+        Find A Mentor
+      </div>
+    <% end %>
+
+    <%= link_to academy_path do%>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i2.wp.com/www.cabotcheese.coop/blog/wp-content/uploads/2019/05/classroom.jpg?resize=1125%2C1125&ssl=1)">
+        The Academy
+      </div>
+    <% end %>
+</div>
 </div>
