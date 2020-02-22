@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include PgSearch::Model
   has_many :experiences, dependent: :destroy
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
@@ -13,4 +14,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  pg_search_scope :search_user_by_skill, associated_against:
+    {
+      skills: :name
+    }, using: {
+      tsearch: { prefix: true }
+    }
 end

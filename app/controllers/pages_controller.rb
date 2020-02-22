@@ -3,28 +3,13 @@ class PagesController < ApplicationController
 
   def home
     if params[:query].present?
-      @users = User.where(skill: params[:query])
-      sql_query = " \
-        users.name ILIKE :query \
-        OR experiences.first_name ILIKE :query \
-        OR skills.last_name ILIKE :query \
-      "
-      @users = User.joins(:skill).where(sql_query, query: "%#{params[:query]}%")
+      @users = User.search_user_by_skill(params[:query]).sort_by { |user| user.experiences.search_experience_by_skill(params[:query]).first.years_of_experience }.reverse
+      @params = params[:query]
     else
       @users = User.all
     end
     @skills = Skill.all
     @image = User.all.first.photo.key
-   #  if params[:query].present?
-   #    sql_query = " \
-   #      user.skills ILIKE :query \
-   #      OR directors.first_name ILIKE :query \
-   #      OR directors.last_name ILIKE :query \
-   #    "
-   #    @users = User.joins(:experiences, :skills).where(sql_query, query: "%#{params[:query]}%")
-   #  else
-   #    @users = User.all
-  	# end
   end
 
   def profile
