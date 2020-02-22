@@ -28,7 +28,7 @@
   <h1 class="text-center" style="margin-top: 50px; margin-bottom: 100px">Find the <strong>best</strong> mentors near you</h1>
   <div class="cards">
     <% @users.each do |user| %>
-      <% if (user != current_user && user != @users[0]) %>
+      <% if (user != current_user) %>
         <div class="card-avatar">
             <%= link_to user_path(user) do %>
               <% begin %>

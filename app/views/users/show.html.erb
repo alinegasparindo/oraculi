@@ -51,11 +51,13 @@
       <% end %>
         <% @user.mentor_reviews.each do |review| %>
           <div class="notification-reviews">
+            <div class="review-img-container">
               <% begin %>
                 <%= cl_image_tag review.mentee.photo.key, class: "avatar" %>
               <% rescue %>
                 <%= cl_image_tag @image, class: "avatar" %>
               <% end %>
+            </div>
             <div class="notification-content">
               <p><small><% review.rate.times do  %>
                     <i class="fas fa-star"></i>
