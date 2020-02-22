@@ -40,49 +40,27 @@
       ></div>
       <p><%= @user.name %>'s prefered location</p>
 
+
     <h2>Reviews</h2>
-
+      <% if @user == current_user %>
+      <%  else %>
         <div id="reviews">
-
-          Be the first to leave a review for <%= @user.name %>
+          Leave a review for <%= @user.name %>
           <p><%= link_to "Add a review", new_user_review_path(@user), {class: "btn btn-primary"}  %><p>
+        </div>
+      <% end %>
 
+        <% @user.mentor_reviews.each do |review| %>
+            <div class="reviews">
+              <% begin %>
+                <%= cl_image_tag review.mentee.photo.key, class: "avatar" %>
+              <% rescue %>
+                <%= cl_image_tag @image, class: "avatar" %>
+              <% end %>
+                <p><%= review.content %></p>
+              </div>
+            <% end %>
 
-      </div>
-
-
-      <div class="reviews">
-        <% begin %>
-          <%= cl_image_tag @user.photo.key, class: "avatar" %>
-        <% rescue %>
-          <%= cl_image_tag @image, class: "avatar" %>
-        <% end %>
-        <p>He changed my life ! Thanks so much</p>
-      </div>
-      <div class="reviews">
-        <% begin %>
-          <%= cl_image_tag @user.photo.key, class: "avatar" %>
-        <% rescue %>
-          <%= cl_image_tag @image, class: "avatar" %>
-        <% end %>
-        <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
-      </div>
-    <div class="reviews">
-      <% begin %>
-          <%= cl_image_tag @user.photo.key, class: "avatar" %>
-        <% rescue %>
-          <%= cl_image_tag @image, class: "avatar" %>
-        <% end %>
-      <p>He changed my life ! Thanks so much</p>
-    </div>
-    <div class="reviews">
-      <% begin %>
-          <%= cl_image_tag @user.photo.key, class: "avatar" %>
-        <% rescue %>
-          <%= cl_image_tag @image, class: "avatar" %>
-        <% end %>
-      <p> Really good with front end ! lorem lorem lorem lorem lorem loremlorem lorem loremlorem lorem loremlorem lorem loremlorem lorem lorem </p>
-    </div>
     </div>
   </div>
 </div>
