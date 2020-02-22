@@ -44,22 +44,27 @@
     <h2>Reviews</h2>
       <% if @user == current_user %>
       <%  else %>
-        <div id="reviews">
-          Leave a review for <%= @user.name %>
-          <p><%= link_to "Add a review", new_user_review_path(@user), {class: "btn btn-primary"}  %><p>
-        </div>
-      <% end %>
 
+          Leave a review for <%= @user.name %>
+          <p><%= link_to "Add a review", new_user_review_path(@user), {class: "buttom"}  %><p>
+
+      <% end %>
         <% @user.mentor_reviews.each do |review| %>
-            <div class="reviews">
+          <div class="notification-reviews">
               <% begin %>
                 <%= cl_image_tag review.mentee.photo.key, class: "avatar" %>
               <% rescue %>
                 <%= cl_image_tag @image, class: "avatar" %>
               <% end %>
-                <p><%= review.content %></p>
-              </div>
-            <% end %>
+            <div class="notification-content">
+              <p><small><% review.rate.times do  %>
+                    <i class="fas fa-star"></i>
+                  <% end %> </small></p>
+              <p><%= review.content %></p>
+            </div>
+          </div>
+          <% end %>
+
 
     </div>
   </div>
