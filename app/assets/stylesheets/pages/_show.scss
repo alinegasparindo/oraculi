@@ -8,6 +8,7 @@
 
 .mentor-info {
   margin-top: 20px;
+  margin-right: 40px;
   align-items: center;
   width: 800px;
 }
@@ -100,13 +101,20 @@
 .fab {
   font-family: 'Font Awesome 5 Brands';
   font-size: 25px;
-  color: blue;
+  color: #48ABA9;
 }
 
 .fa-linkedin {
   width: 30px;
 }
 
+.text-green {
+  color: #48ABA9;
+}
+
+.text-grey {
+  color: #8B9494;
+}
 
 // .map-review img {
 //   width: 600px;

@@ -47,7 +47,6 @@
       <%  else %>
           <p><%= link_to "Add a review", new_user_review_path(@user), {class: "btn btn-primary"}  %><p>
       <% end %>
-
     </div>
 
         <% @user.mentor_reviews.each do |review| %>
@@ -65,8 +64,6 @@
             </div>
           </div>
           <% end %>
-
-
     </div>
   </div>
 </div>
