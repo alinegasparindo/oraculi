@@ -27,11 +27,13 @@
                 </div>
               </div>
             <% end %>
+
     </div>
 
     <div class="mentor">
         <h2>As a mentor</h2>
           <% @user.mentor_meetings.each do |meeting| %>
+
               <div class="notification">
                  <%= cl_image_tag meeting.mentee.photo.key, class: "avatar-large" %>
                 <div class="notification-content">
@@ -39,6 +41,7 @@
                   <p><small><%= meeting.location %></small></p>
                   <p>With <%= meeting.mentee.name %></p>
                   <% if meeting.accepted == false  %>
+
                     <p>Status: Waiting for approval</p>
                   <% end %>
                   <% if meeting.accepted == true %>
@@ -54,6 +57,7 @@
                   <p class=""><%= link_to "⛔️ Cancel", meeting_path(meeting), method: :delete %></p>
                 </div>
               </div>
+
           <% end %>
     </div>
   </div>
