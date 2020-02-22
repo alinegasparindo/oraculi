@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
 
   get 'user', to: 'pages#profile'
-  #21 from alinegasparindo/reviews
+
   get 'meeting', to: 'meeting#update'
+ #22 from alinegasparindo/final-work-of-lotfi
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
