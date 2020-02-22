@@ -42,7 +42,7 @@
 
 
     <div class="reviews">
-      <h2><strong>Reviews</strong></h2>
+      <h2>Reviews</h2>
       <% if @user == current_user %>
       <%  else %>
           <p><%= link_to "Add a review", new_user_review_path(@user), {class: "btn btn-primary"}  %><p>

@@ -1,12 +1,11 @@
 
 
 <div class="container">
-  <h1 class="text-center">Here are all your meetings</h1>
+  <h1 class="text-center text-green">Here are all your meetings</h1>
   <div class="meetings">
 
     <div class="mentee">
         <h2>As a mentee</h2>
-
             <% @user.mentee_meetings.each do |meeting| %>
               <div class="notification">
                  <%= cl_image_tag meeting.mentor.photo.key, class: "avatar-large" %>
@@ -31,7 +30,6 @@
 
     <div class="mentor">
         <h2>As a mentor</h2>
-
           <% @user.mentor_meetings.each do |meeting| %>
               <div class="notification">
                  <%= cl_image_tag meeting.mentee.photo.key, class: "avatar-large" %>
