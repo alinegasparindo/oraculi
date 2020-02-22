@@ -2,7 +2,6 @@
 
 <div class="container">
   <h1 class="text-center">Here are all your meetings</h1>
-
   <div class="meetings">
 
     <div class="mentee">
@@ -16,10 +15,10 @@
                   <p><small><%= meeting.location %></small></p>
                   <p>With <%= meeting.mentor.name %></p>
                   <% if meeting.accepted == nil %>
-                    <p>Status: Pending</p>
+                    <p class="text-grey">Status: Pending</p>
                   <% end %>
                   <% if meeting.accepted == true %>
-                    <p>Status: Confirmed</p>
+                    <p class="text-green">Status: Confirmed</p>
                   <% end %>
                 </div>
 
@@ -41,10 +40,10 @@
                   <p><small><%= meeting.location %></small></p>
                   <p>With <%= meeting.mentee.name %></p>
                   <% if meeting.accepted == nil  %>
-                    <p>Status: Waiting for approval</p>
+                    <p class="text-grey">Status: Waiting for approval</p>
                   <% end %>
                   <% if meeting.accepted == true %>
-                    <p>Status: Confirmed</p>
+                    <p class="text-green">Status: Confirmed</p>
                   <% end %>
                 </div>
 

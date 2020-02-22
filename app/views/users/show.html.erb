@@ -41,14 +41,14 @@
       <p><%= @user.name %>'s prefered location: <%= @user.location %></p>
 
 
-    <h2>Reviews</h2>
+    <div class="reviews">
+      <h2><strong>Reviews</strong></h2>
       <% if @user == current_user %>
       <%  else %>
-
-          Leave a review for <%= @user.name %>
-          <p><%= link_to "Add a review", new_user_review_path(@user), {class: "buttom"}  %><p>
-
+          <p><%= link_to "Add a review", new_user_review_path(@user), {class: "btn btn-primary"}  %><p>
       <% end %>
+    </div>
+
         <% @user.mentor_reviews.each do |review| %>
           <div class="notification-reviews">
             <div class="review-img-container">
@@ -66,8 +66,6 @@
             </div>
           </div>
           <% end %>
-
-
     </div>
   </div>
 </div>
