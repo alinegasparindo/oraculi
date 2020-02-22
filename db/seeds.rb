@@ -98,7 +98,15 @@ def generateExperiences(user, skills)
   end
 end
 
-def generateMeetings(mentor, mentee)
+def generateMeetings(user, mentor)
+  if mentor
+    mentor = user
+    mentee = (User.all - [user]).sample
+  else
+    mentor = (User.all - [user]).sample
+    mentee = user
+  end
+
   Meeting.create({
     start_time: DateTime.new(2020,9,1,17),
     end_time: DateTime.new(2020,9,1,18),
@@ -109,11 +117,11 @@ def generateMeetings(mentor, mentee)
   })
 end
 
-def generateReviews(user, admin_user)
+def generateReviews(user)
   rand(2..4).times do
-    user_mentee = (User.all - [user, admin_user]).sample
+    user_mentee = (User.all - [user]).sample
     Review.create({
-      rate: rand(1..5),
+      rate: rand(3..5),
       content: Faker::Quote.matz,
       mentor_id: user.id,
       mentee_id: user_mentee.id
@@ -132,8 +140,7 @@ end
 # generateExperiences(admin, skills)
 
 image_index = 0
-# images.length().times do
-5.times do
+images.length().times do
   name = Faker::Name.unique.name
 
   user = User.create({
@@ -151,29 +158,33 @@ image_index = 0
 end
 
 jeff = User.create({
-  email: "admin@admin.com",
-  password: 'admin123',
+  email: "jeff@gmail.com",
+  password: 'apple1',
   name: "Jeff",
   description: Faker::TvShows::MichaelScott.quote,
   location: '21 jump Street, Pasig, Metro Manila, Philippines'
 })
 jeff.photo.attach(io: URI.open(jeff_image), filename: "Jeff.png")
 generateExperiences(jeff, skills)
-generateReviews(jeff, admin)
-user_mentee = (User.all - [jeff, admin]).sample
-generateMeetings(jeff, user_mentee)
-user_mentee = (User.all - [jeff, admin]).sample
-generateMeetings(user_mentee, jeff)
+generateReviews(jeff)
+generateMeetings(jeff, true)
+generateMeetings(jeff, false)
 
 aline = User.create({
-    email: "aline.gasparindo@gmail.com",
-    password: '123456',
+    email: "aline@gmail.com",
+    password: 'apple1',
     name: "Aline",
     description: Faker::TvShows::MichaelScott.quote,
     location: '5333 Casgrain Avenue, Montreal, Quebec H2T 1X3'
   })
 aline.photo.attach(io: URI.open(boss_image), filename: "Aline.png")
 generateExperiences(aline, skills)
-generateReviews(aline, admin)
+generateReviews(aline)
+
+generateMeetings(aline, true)
+generateMeetings(aline, true)
+generateMeetings(aline, true)
+generateMeetings(aline, false)
+generateMeetings(aline, false)
 
 puts 'Seeding completed'
