@@ -28,7 +28,11 @@ puts 'Currently seeding'
 puts '***********************'
 puts ''
 
-skills = Skill.create([{ name: 'Ruby' }, { name: 'JavaScript' }, { name: 'HTML & CSS' }, { name: 'UI/UX' }, { name: 'PHP'}, { name: 'Angular'}])
+skill_names = ['Ruby', 'JavaScript', 'HTML & CSS', 'UI/UX', 'PHP', 'Angular', 'Google Script', 'Python', 'C#', 'Java', 'React']
+
+skill_names.each {|skill| Skill.create({ name: skill })}
+
+skills = Skill.all
 
 defaul_image = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
 boss_image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Steve_Carell_2010.jpg/170px-Steve_Carell_2010.png'
