@@ -2,6 +2,7 @@
 <div class="container">
   <h1 class="text-center">Adding a new meeting</h1>
 
+
   <%= simple_form_for [@mentor, @meeting] do |f| %>
     <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"}  %>
     <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>

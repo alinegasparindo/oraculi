@@ -41,16 +41,6 @@
       <p><%= @user.name %>'s prefered location</p>
 
     <h2>Reviews</h2>
-
-        <div id="reviews">
-
-          Be the first to leave a review for <%= @user.name %>
-          <p><%= link_to "Add a review", new_user_review_path(@user), {class: "btn btn-primary"}  %><p>
-
-
-      </div>
-
-
       <div class="reviews">
         <% begin %>
           <%= cl_image_tag @user.photo.key, class: "avatar" %>
